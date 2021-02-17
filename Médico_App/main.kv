@@ -1,0 +1,18 @@
+#: include login.kv
+
+NavigationLayout:
+    id:nav_layout
+    ScreenManager:
+        Screen:
+            BoxLayout:
+                MDToolbar:
+                    title:app.title
+                ScreenManager:
+                    id:screen_manager
+                    Login:
+                        id:login
+                        name:login
+                    
+    MDNavigationDrawer:
+
+                
