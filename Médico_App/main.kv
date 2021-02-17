@@ -1,18 +1,64 @@
 #: include login.kv
+#: include pacientes.kv
+#: include informacion.kv
 
 NavigationLayout:
     id:nav_layout
     ScreenManager:
         Screen:
             BoxLayout:
+                orientation: 'vertical'
                 MDToolbar:
                     title:app.title
                 ScreenManager:
                     id:screen_manager
                     Login:
                         id:login
-                        name:login
+                        name:'login'
+                    Pacientes:
+                        id:pacientes
+                        name:'pacientes'
+                
                     
     MDNavigationDrawer:
+        id:nav_drawer
 
-                
+        BoxLayout:
+            orientation:'vertical'
+            padding: "8dp"
+            spacing: "8dp"
+
+            Image:
+                id: avatar
+                size_hint: None, None
+                size: "56dp", "56dp"
+                source: "kivymd.png"
+
+            MDLabel:
+                id:nombre_medico
+                text: "Maria Fernandes"
+                font_style: "Button"
+                size_hint_y: None
+                height: self.texture_size[1]
+
+            MDLabel:
+                id:correo_medico
+                text: "kivydevelopment@gmail.com"
+                font_style: "Caption"
+                size_hint_y: None
+                height: self.texture_size[1]
+
+            ScrollView:
+                MDList:
+                    OneLineIconListItem:
+                        text:'Pacientes'
+                        on_release:
+                            screen_manager.current='pacientes' 
+                            nav_drawer.set_state()
+                    OneLineIconListItem:
+                        text:'Información'
+                        on_release:
+                            screen_manager.current='informacion' 
+                            nav_drawer.set_state()
+                    OneLineIconListItem:
+                        text:'Cerrar Sesión'
