@@ -16,6 +16,9 @@ class MedicoApp(MDApp):
         self.title='Medic-App'
         self.theme_cls.primary_palette='Blue'
         return Builder.load_file('main.kv')
+    
+    def cerrar_sesion(self):
+        print('cerrar')
 
 
 MedicoApp().run()

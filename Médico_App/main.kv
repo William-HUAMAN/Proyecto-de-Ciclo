@@ -10,14 +10,20 @@ NavigationLayout:
                 orientation: 'vertical'
                 MDToolbar:
                     title:app.title
+                    left_action_items:[["menu",lambda x: nav_drawer.set_state()]]
                 ScreenManager:
                     id:screen_manager
+
                     Login:
                         id:login
                         name:'login'
                     Pacientes:
                         id:pacientes
                         name:'pacientes'
+
+                    Informacion:
+                        id:informacion
+                        name:'informacion'
                 
                     
     MDNavigationDrawer:
@@ -29,21 +35,20 @@ NavigationLayout:
             spacing: "8dp"
 
             Image:
-                id: avatar
+                id: imagen_medico
                 size_hint: None, None
                 size: "56dp", "56dp"
-                source: "kivymd.png"
+                #source: "kivymd.png"
 
             MDLabel:
                 id:nombre_medico
-                text: "Maria Fernandes"
-                font_style: "Button"
+                text: "Dr.Maria Fernandes"
                 size_hint_y: None
                 height: self.texture_size[1]
 
             MDLabel:
                 id:correo_medico
-                text: "kivydevelopment@gmail.com"
+                text: "cpp@gmail.com"
                 font_style: "Caption"
                 size_hint_y: None
                 height: self.texture_size[1]
@@ -55,10 +60,22 @@ NavigationLayout:
                         on_release:
                             screen_manager.current='pacientes' 
                             nav_drawer.set_state()
+                        IconLeftWidget:
+                            icon:"account-group"
                     OneLineIconListItem:
                         text:'Información'
                         on_release:
                             screen_manager.current='informacion' 
                             nav_drawer.set_state()
+                        IconLeftWidget:
+                            icon:"information"
+
                     OneLineIconListItem:
                         text:'Cerrar Sesión'
+                        on_release:
+                            screen_manager.current='login' 
+                            nav_drawer.set_state()
+                            app.cerrar_sesion()
+
+                        IconLeftWidget:
+                            icon:"exit-to-app"
