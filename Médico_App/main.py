@@ -1,3 +1,4 @@
+#Creación de pantalla de KivyMD
 from kivymd.app import MDApp
 from kivy.lang import Builder
 from kivy.uix.screenmanager import Screen
@@ -11,6 +12,11 @@ class Informacion(Screen):
     def on_pre_enter(self, *args):
         self.app.title="Información"
 
+
+
+
+
+
 class Login(Screen):
     def __init__(self,**kwargs):
         super().__init__(**kwargs)
@@ -18,6 +24,17 @@ class Login(Screen):
         
     def on_pre_enter(self, *args):
         self.app.title="Inicio de Sesión"
+    
+    def ir_enlace(self):
+        print ('ir enlace')
+
+
+
+
+
+
+
+
 
 class Pacientes(Screen):
     def __init__(self,**kwargs):
@@ -26,6 +43,13 @@ class Pacientes(Screen):
         
     def on_pre_enter(self, *args):
         self.app.title="Pacientes"
+
+
+
+
+
+
+        
 
 class MedicoApp(MDApp):
     def build(self):

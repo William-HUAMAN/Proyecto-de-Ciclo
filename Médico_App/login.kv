@@ -10,7 +10,7 @@
             height: self.minimum_height
             pos_hint: {"center_x": .5,"center_y": .5 }
             padding:"30dp","15dp","30dp","30dp"
-            spacing:'12dp'
+            #spacing:'5dp'
 
             canvas:
                 Color: 
@@ -26,44 +26,38 @@
                 theme_text_color:'Custom'
                 text_color:0,0,0,1
                 halign:'center'
-            Widget:
-                size_hint_y:None
-                height:'4dp'
             MDLabel:
                 text:'Bienvenido!'
                 bold:True
-            Widget:
-                size_hint_y:None
-                height:'24dp'
+            MDLabel:
+                text:'Necesitamos que nos brindes algunos datos para poder hacer uso de este servicio'
+                font_style:'Caption'
             MDTextFieldRound:
                 icon_left:'mail'
                 pos_hint:{'center_x':.5}
                 normal_color: 1,1,1,.5
                 icon_left_color: 0,0,0
-            
+            Widget:
+                height:'5dp'
             MDTextFieldRound:
                 icon_left:'lock'
                 pos_hint:{'center_x':.5}
                 normal_color: 1,1,1,.5
                 icon_left_color: 0,0,0
-            
+                
             MDRaisedButton:
                 text:'Iniciar'
                 pos_hint:{'center_x':.5}
-        
-        BoxLayout:
-            y:box.y-self.height+10
-            size_hint_y:None
-            height:self.minimum_height
-            pos_hint:{'center_x':.5}
-            padding:'24dp','24dp','24dp','24dp'
-            size_hint_x:.75
-            MDLabel:
-                text:'Si no posee una cuenta,regístrese en el siguiente enlace'
             
-                
-
-
-
-
-
+            BoxLayout:
+                orientation:'horizontal'
+                MDLabel:
+                    text:'Si no posee una cuenta,regístrese en el siguiente'
+                    font_style:'Caption'
+                    pos_hint_x:.5
+                MDRaisedButton:
+                    text:'enlace'
+                    text_color: 0, 0, 1, 1
+                    md_bg_color:1,1,1,.6
+                    #font_size: "18sp"
+                    on_release: root.ir_enlace()
