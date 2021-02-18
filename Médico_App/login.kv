@@ -1,4 +1,69 @@
 <Login>:
-    FloatLayout:
-        Button:
-            text:'login'
+    Screen:
+        FitImage:
+            source:'Images/fondo_1.jpg'
+
+        BoxLayout:
+            id:box
+            orientation: 'vertical'
+            size_hint: .45,.7
+            height: self.minimum_height
+            pos_hint: {"center_x": .5,"center_y": .5 }
+            padding:"30dp","15dp","30dp","30dp"
+            spacing:'12dp'
+
+            canvas:
+                Color: 
+                    rgba: 1,1,1, .5
+                RoundedRectangle:
+                    pos:self.pos
+                    size:self.size
+                    radius: 10,10,10,10
+                
+            MDLabel:
+                text:'INICIO DE SESIÓN'
+                bold:True
+                theme_text_color:'Custom'
+                text_color:0,0,0,1
+                halign:'center'
+            Widget:
+                size_hint_y:None
+                height:'4dp'
+            MDLabel:
+                text:'Bienvenido!'
+                bold:True
+            Widget:
+                size_hint_y:None
+                height:'24dp'
+            MDTextFieldRound:
+                icon_left:'mail'
+                pos_hint:{'center_x':.5}
+                normal_color: 1,1,1,.5
+                icon_left_color: 0,0,0
+            
+            MDTextFieldRound:
+                icon_left:'lock'
+                pos_hint:{'center_x':.5}
+                normal_color: 1,1,1,.5
+                icon_left_color: 0,0,0
+            
+            MDRaisedButton:
+                text:'Iniciar'
+                pos_hint:{'center_x':.5}
+        
+        BoxLayout:
+            y:box.y-self.height+10
+            size_hint_y:None
+            height:self.minimum_height
+            pos_hint:{'center_x':.5}
+            padding:'24dp','24dp','24dp','24dp'
+            size_hint_x:.75
+            MDLabel:
+                text:'Si no posee una cuenta,regístrese en el siguiente enlace'
+            
+                
+
+
+
+
+

@@ -1,15 +1,31 @@
 from kivymd.app import MDApp
 from kivy.lang import Builder
 from kivy.uix.screenmanager import Screen
+import webbrowser
 
 class Informacion(Screen):
-    pass
+    def __init__(self,**kwargs):
+        super().__init__(**kwargs)
+        self.app=MDApp.get_running_app()
+        
+    def on_pre_enter(self, *args):
+        self.app.title="Información"
 
 class Login(Screen):
-    pass
+    def __init__(self,**kwargs):
+        super().__init__(**kwargs)
+        self.app=MDApp.get_running_app()
+        
+    def on_pre_enter(self, *args):
+        self.app.title="Inicio de Sesión"
 
 class Pacientes(Screen):
-    pass
+    def __init__(self,**kwargs):
+        super().__init__(**kwargs)
+        self.app=MDApp.get_running_app()
+        
+    def on_pre_enter(self, *args):
+        self.app.title="Pacientes"
 
 class MedicoApp(MDApp):
     def build(self):
