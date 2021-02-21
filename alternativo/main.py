@@ -2,9 +2,10 @@
 from kivymd.app import MDApp
 from kivy.lang import Builder
 from kivy.uix.screenmanager import Screen, ScreenManager
-from pantallas.splash_screen import SplashScreen
+from splash_screen import SplashScreen
+
 import webbrowser
-  
+
 
 class MedicoApp(MDApp):
     def build(self):
