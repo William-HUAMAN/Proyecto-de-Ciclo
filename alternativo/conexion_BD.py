@@ -1,10 +1,5 @@
 from pymongo import MongoClient
 
-#los_doctores=db.medicos.find({"cat":"medico"},{'_id':1})
-
-# for doctor in los_doctores:
-#     print(doctor)
-
 class Conexion_BD():
     def get_db(self):
         try:
@@ -20,6 +15,6 @@ class Conexion_BD():
         db=self.get_db()
         los_medicos=db.medicos.find({"colegiatura":codigo_acceso},{'_id':1,"nombres":1})#
         for medico in los_medicos:
-             print(medico)
+            print(medico)
         
         

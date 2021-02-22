@@ -36,7 +36,14 @@ class SplashScreen(MDScreen):
             with open("mi_conexion.txt","r") as f:
                 codigo_acceso=f.read()
                 self.mi_conexion.verificar_mi_conexion(codigo_acceso)
-                #print(codigo_acceso)
-                print('cambiar a pantalla de navegacion')
+                Clock.schedule_once(lambda dt:self.cargar_navegacion(),10)
+
         except:
-            print('cambiar al login')
+            Clock.schedule_once(lambda dt:self.cargar_login(),10)
+            #print('cambiar al login')
+    
+    def cargar_navegacion(self):
+        self.app.root.current='navigation_screen'
+    
+    def cargar_login(self):
+        self.app.root.current='login_screen'
