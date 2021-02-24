@@ -1,5 +1,6 @@
 from kivymd.uix.screen import MDScreen
 from kivy.lang import Builder
+from conexion_BD import Conexion_BD
 import webbrowser
 
 kv="""
@@ -72,10 +73,16 @@ kv="""
 """
 class LoginScreen(MDScreen):
     Builder.load_string(kv)
+
+    def __init__(self,**kw):
+        super().__init__(**kw)
+        self.mi_conexion=Conexion_BD()
     
     def iniciar_sesion(self):
-        print(self.ids.correo.text)
-        print(self.ids.password.text)
+        self.mi_conexion.inicio_sesion(self.ids.correo.text,self.ids.password.text)
+        
+        # print(self.ids.correo.text)
+        # print(self.ids.password.text)
 
     def ir_enlace(self):
         webbrowser.open('https://stark-spire-16180.herokuapp.com/reg_medico#')
