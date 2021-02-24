@@ -3,7 +3,7 @@ from kivy.lang import Builder
 
 kv="""
 <LoginScreen>
-    name:'Login_screen'
+    name:'login_screen'
     MDLabel:
         text:'pantalla de inicio'
 """
