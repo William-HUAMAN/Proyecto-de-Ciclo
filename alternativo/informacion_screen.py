@@ -1,7 +1,7 @@
 from kivy.lang.builder import Builder
 from kivymd.uix.screen import MDScreen
 from kivy.lang import Builder
-from login_screen import LoginScreen
+#from login_screen import LoginScreen
 import webbrowser
 
 kv="""
