@@ -9,6 +9,8 @@ from login_screen import LoginScreen
 #transicion
 from kivy.clock import Clock
 
+from io import open
+
 kv="""
 <SplashScreen>
     name: "splash_screen"
@@ -33,9 +35,11 @@ class SplashScreen(MDScreen):
         self.app.root.add_widget(pantalla_navegacion)
         self.app.root.add_widget(pantalla_inicio)
         try:
-            with open("mi_conexion.txt","r") as f:
-                codigo_acceso=f.read()
-                self.mi_conexion.verificar_mi_conexion(codigo_acceso)
+            with open("info_personal.txt","r") as f:
+                lineas_texto=f.readlines()
+                nombre=lineas_texto[0];apellido=lineas_texto[1];num_colegiatura=lineas_texto[2];centro_trabajo=lineas_texto[3]
+                f.close()
+                self.mi_conexion.verificar_mi_conexion(nombre,apellido,num_colegiatura,centro_trabajo)
                 Clock.schedule_once(lambda dt:self.cargar_navegacion(),2)
 
         except:

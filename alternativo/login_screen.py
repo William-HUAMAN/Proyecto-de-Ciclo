@@ -1,7 +1,11 @@
 from kivymd.uix.screen import MDScreen
 from kivy.lang import Builder
 from conexion_BD import Conexion_BD
+from kivymd.app import MDApp
+# importado para ir al enlace
 import webbrowser
+#importando la pantalla de navegacion
+from navigation_screen import NavigationScreen
 
 kv="""
 <LoginScreen>:
@@ -76,13 +80,19 @@ class LoginScreen(MDScreen):
 
     def __init__(self,**kw):
         super().__init__(**kw)
+        self.app=MDApp.get_running_app()#
         self.mi_conexion=Conexion_BD()
+
+        pantalla_navegacion=NavigationScreen()
+        self.app.root.add_widget(pantalla_navegacion)
+
     
     def iniciar_sesion(self):
         self.mi_conexion.inicio_sesion(self.ids.correo.text,self.ids.password.text)
-        
         # print(self.ids.correo.text)
         # print(self.ids.password.text)
+        self.app.root.current='navigation_screen'
+
 
     def ir_enlace(self):
         webbrowser.open('https://stark-spire-16180.herokuapp.com/reg_medico#')

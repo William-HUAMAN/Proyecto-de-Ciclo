@@ -1,4 +1,5 @@
 from pymongo import MongoClient
+from io import open
 
 class Conexion_BD():
     def get_db(self):
@@ -11,19 +12,25 @@ class Conexion_BD():
 
     def inicio_sesion(self,email,password):
         db=self.get_db()
-        dato=db.medicos.find_one({'email':email,'password':password},{'_id':0,'colegiatura':1,'centro':1,'nombres':1,'apellidos':1})
+        dato=db.medicos.find_one({'email':email,'password':password},{'_id':0,'nombres':1,'apellidos':1,'colegiatura':1,'centro':1})
         if dato==None:
             print('no existe la cuenta')
         else:
-            print(dato)
-        # print(email)
-        # print(password)
+            nombre=dato['nombres'];apellido=dato['apellidos'];num_colegiatura=str(dato['colegiatura']);trabajo=dato['centro']
+            #print(nombre+'\n'+apellido+'\n'+num_colegiatura+'\n'+trabajo)
 
+            archivo_texto=open('info_personal.txt','w')
+            datos_recibidos=nombre+'\n'+apellido+'\n'+num_colegiatura+'\n'+trabajo
+            archivo_texto.write(datos_recibidos)
+            archivo_texto.close()
 
-    def verificar_mi_conexion(self,codigo_acceso):
-        db=self.get_db()
-        los_medicos=db.medicos.find({"colegiatura":codigo_acceso},{'_id':1,"nombres":1})#
-        for medico in los_medicos:
-            print(medico)
         
+
+    def verificar_mi_conexion(self,nombre,apellido,num_colegiatura,centro_trabajo):
+        db=self.get_db()
+        dato=db.medicos.find({"nombres":nombre,'apellidos':apellido,'colegiatura':num_colegiatura,'centro':centro_trabajo},{'_id':0,"nombres":1})#
+        if dato==None:
+                print('ir a login')
+        else:
+            print('ir al navigation')
         
