@@ -1,14 +1,16 @@
 from kivymd.uix.screen import MDScreen
 from kivymd.app import MDApp
 from kivy.lang import Builder
+
 #Para la conexion con la BD
 from conexion_BD import Conexion_BD
+
 #importando pantallas
 from navigation_screen import NavigationScreen
 from login_screen import LoginScreen
 #transicion
 from kivy.clock import Clock
-
+#trabajar con txt
 from io import open
 
 kv="""

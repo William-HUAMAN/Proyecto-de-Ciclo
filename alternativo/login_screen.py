@@ -88,11 +88,15 @@ class LoginScreen(MDScreen):
 
     
     def iniciar_sesion(self):
-        self.mi_conexion.inicio_sesion(self.ids.correo.text,self.ids.password.text)
+        if self.mi_conexion.inicio_sesion(self.ids.correo.text,self.ids.password.text) ==False:
+            print('a ocurrido un error')
+            self.ids.correo.text=''
+            self.ids.password.text=''
+        else:
+            self.app.root.current='navigation_screen'
         # print(self.ids.correo.text)
         # print(self.ids.password.text)
-        self.app.root.current='navigation_screen'
-
+        
 
     def ir_enlace(self):
         webbrowser.open('https://stark-spire-16180.herokuapp.com/reg_medico#')

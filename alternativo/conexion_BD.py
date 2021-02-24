@@ -2,6 +2,7 @@ from pymongo import MongoClient
 from io import open
 
 class Conexion_BD():
+
     def get_db(self):
         try:
             self.client=MongoClient("mongodb+srv://WilliamHuaman:MUfbSr5qOCkXJWur@proyectoprogramacion.u4hsj.mongodb.net/myFirstDatabase?retryWrites=true&w=majority")
@@ -10,11 +11,13 @@ class Conexion_BD():
             print('Error de conexion')
         return self.db
 
+
     def inicio_sesion(self,email,password):
         db=self.get_db()
         dato=db.medicos.find_one({'email':email,'password':password},{'_id':0,'nombres':1,'apellidos':1,'colegiatura':1,'centro':1})
         if dato==None:
-            print('no existe la cuenta')
+            #a=('no existe la cuenta')
+            return False
         else:
             nombre=dato['nombres'];apellido=dato['apellidos'];num_colegiatura=str(dato['colegiatura']);trabajo=dato['centro']
             #print(nombre+'\n'+apellido+'\n'+num_colegiatura+'\n'+trabajo)
@@ -23,6 +26,7 @@ class Conexion_BD():
             datos_recibidos=nombre+'\n'+apellido+'\n'+num_colegiatura+'\n'+trabajo
             archivo_texto.write(datos_recibidos)
             archivo_texto.close()
+            return True
 
         
 
