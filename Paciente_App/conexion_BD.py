@@ -11,14 +11,6 @@ class Conexion_BD():
             print('Error de conexion')
         return self.db
 
-    def obtener_pacientes(self):
-        # db=self.get_db()
-        # pacientes=db.pacientes.find()
-        # for paciente in pacientes:
-        #     print(paciente)
-        print('lista de pacientes')
-
-
     def inicio_sesion(self,email,password):
         db=self.get_db()
         dato=db.pacientes.find_one({'email':email,'password':password},{'_id':0,'nombres':1,'apellidos':1,'dni':1,'centro':1})
@@ -44,4 +36,33 @@ class Conexion_BD():
                 print('ir a login')
         else:
             print('ir al navigation')
+    
+    def insertar_dato(self,dato):
+        db=self.get_db()
+        db.mediciones_pacientes.insert_one(dato)
+        
+
+class MedicionesPacientes:
+    def __init__(self,dni,fecha,fecha_int,hora,hora_int,pulso,temperatura,oxigeno):
+        self.dni=dni
+        self.fecha=fecha
+        self.fecha_int=fecha_int
+        self.hora=hora
+        self.hora_int=hora_int
+        self.pulso=pulso
+        self.temperatura=temperatura
+        self.oxigeno=oxigeno
+    
+    def toCollection(self):
+        return{
+            'dni':self.dni,
+            'fecha':self.fecha,
+            'fecha_int':self.fecha_int,
+            'hora':self.hora,
+            'hora_int':self.hora_int,
+            'pulso':self.pulso,
+            'temperatura':self.temperatura,
+            'oxigeno':self.oxigeno
+        }
+
         
