@@ -25,7 +25,7 @@ kv="""
                     orientation:'vertical'
                     MDToolbar:
                         id:tool_bar
-                        title:'Medic-App'
+                        title:'Pacient-App'
                         left_action_items:[["menu",lambda x: nav_drawer.set_state()]]
                     ScreenManager:
                         id:screen_manager
@@ -57,7 +57,7 @@ class NavigationScreen(MDScreen):
         from informacion_screen import InformacionScreen
 
         self.list_screen = {
-            PacientesScreen:('pacientes_screen','Pacientes','settings'),
+            PacientesScreen:('pacientes_screen','Enviar datos','settings'),#solo se cambió el nombre debido al tiempo
             InformacionScreen:('information_screen','Información','settings')
         }
 

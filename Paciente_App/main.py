@@ -7,7 +7,7 @@ from splash_screen import SplashScreen
 class MedicoApp(MDApp):
     def build(self):
         sm=ScreenManager()
-        self.title='Medic-App'
+        self.title='Pacient-App'
         self.theme_cls.primary_palette='Blue'
         return sm
     
