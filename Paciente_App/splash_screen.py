@@ -37,11 +37,11 @@ class SplashScreen(MDScreen):
         self.app.root.add_widget(pantalla_navegacion)
         self.app.root.add_widget(pantalla_inicio)
         try:
-            with open("info_medico.txt","r") as f:
+            with open("info_paciente.txt","r") as f:
                 lineas_texto=f.readlines()
-                nombre=lineas_texto[0];apellido=lineas_texto[1];num_colegiatura=lineas_texto[2];centro_trabajo=lineas_texto[3]
+                nombre=lineas_texto[0];apellido=lineas_texto[1];num_dni=lineas_texto[2];centro=lineas_texto[3]
                 f.close()
-                self.mi_conexion.verificar_mi_conexion(nombre,apellido,num_colegiatura,centro_trabajo)
+                self.mi_conexion.verificar_mi_conexion(nombre,apellido,num_dni,centro)
                 Clock.schedule_once(lambda dt:self.cargar_navegacion(),2)
 
         except:

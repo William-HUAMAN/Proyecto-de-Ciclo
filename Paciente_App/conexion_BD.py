@@ -21,25 +21,25 @@ class Conexion_BD():
 
     def inicio_sesion(self,email,password):
         db=self.get_db()
-        dato=db.medicos.find_one({'email':email,'password':password},{'_id':0,'nombres':1,'apellidos':1,'colegiatura':1,'centro':1})
+        dato=db.pacientes.find_one({'email':email,'password':password},{'_id':0,'nombres':1,'apellidos':1,'dni':1,'centro':1})
         if dato==None:
             #a=('no existe la cuenta')
             return False
         else:
-            nombre=dato['nombres'];apellido=dato['apellidos'];num_colegiatura=str(dato['colegiatura']);trabajo=dato['centro']
+            nombre=dato['nombres'];apellido=dato['apellidos'];num_dni=str(dato['dni']);centro=dato['centro']
             #print(nombre+'\n'+apellido+'\n'+num_colegiatura+'\n'+trabajo)
 
-            archivo_texto=open('info_medico.txt','w')
-            datos_recibidos=nombre+'\n'+apellido+'\n'+num_colegiatura+'\n'+trabajo
+            archivo_texto=open('info_paciente.txt','w')
+            datos_recibidos=nombre+'\n'+apellido+'\n'+num_dni+'\n'+centro
             archivo_texto.write(datos_recibidos)
             archivo_texto.close()
             return True
 
         
 
-    def verificar_mi_conexion(self,nombre,apellido,num_colegiatura,centro_trabajo):
+    def verificar_mi_conexion(self,nombre,apellido,num_dni,centro):
         db=self.get_db()
-        dato=db.medicos.find({"nombres":nombre,'apellidos':apellido,'colegiatura':num_colegiatura,'centro':centro_trabajo},{'_id':0,"nombres":1})#
+        dato=db.pacientes.find({"nombres":nombre,'apellidos':apellido,'colegiatura':num_dni,'centro':centro},{'_id':0,"nombres":1})#
         if dato==None:
                 print('ir a login')
         else:
