@@ -11,6 +11,13 @@ class Conexion_BD():
             print('Error de conexion')
         return self.db
 
+    def obtener_pacientes(self):
+        # db=self.get_db()
+        # pacientes=db.pacientes.find()
+        # for paciente in pacientes:
+        #     print(paciente)
+        print('lista de pacientes')
+
 
     def inicio_sesion(self,email,password):
         db=self.get_db()
@@ -22,7 +29,7 @@ class Conexion_BD():
             nombre=dato['nombres'];apellido=dato['apellidos'];num_colegiatura=str(dato['colegiatura']);trabajo=dato['centro']
             #print(nombre+'\n'+apellido+'\n'+num_colegiatura+'\n'+trabajo)
 
-            archivo_texto=open('info_personal.txt','w')
+            archivo_texto=open('info_medico.txt','w')
             datos_recibidos=nombre+'\n'+apellido+'\n'+num_colegiatura+'\n'+trabajo
             archivo_texto.write(datos_recibidos)
             archivo_texto.close()

@@ -37,7 +37,7 @@ class SplashScreen(MDScreen):
         self.app.root.add_widget(pantalla_navegacion)
         self.app.root.add_widget(pantalla_inicio)
         try:
-            with open("info_personal.txt","r") as f:
+            with open("info_medico.txt","r") as f:
                 lineas_texto=f.readlines()
                 nombre=lineas_texto[0];apellido=lineas_texto[1];num_colegiatura=lineas_texto[2];centro_trabajo=lineas_texto[3]
                 f.close()
