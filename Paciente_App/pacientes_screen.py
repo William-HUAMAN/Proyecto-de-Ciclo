@@ -55,6 +55,6 @@ class PacientesScreen(MDScreen):
         self.insertar.insertar_dato(self.mediciones.toCollection())
         
     # def on_pre_enter(self):
-    #     self.filas_pacientes.obtener_pacientes()
+    #     funciones para antes q cargue la pantalla
 
 

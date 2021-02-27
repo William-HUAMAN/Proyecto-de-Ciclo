@@ -52,13 +52,15 @@ class NavigationScreen(MDScreen):
         super().__init__(**kwargs)
         self.app=MDApp.get_running_app()
         #lista de las pantallas (id,titulo[text],icono)
-        from login_screen import LoginScreen
+        
         from pacientes_screen import PacientesScreen
         from informacion_screen import InformacionScreen
+        from historial_screen import HistorialScreen
 
         self.list_screen = {
             PacientesScreen:('pacientes_screen','Enviar datos','settings'),#solo se cambió el nombre debido al tiempo
-            InformacionScreen:('information_screen','Información','settings')
+            InformacionScreen:('information_screen','Información','settings'),
+            HistorialScreen:('historial_screen','Historial','settings')
         }
 
     def on_enter(self, *args):
