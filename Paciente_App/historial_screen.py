@@ -118,3 +118,4 @@ class HistorialScreen(MDScreen):
             self.banner=Banner(i['fecha'],i['hora'],i['pulso'],i['temperatura'],i['oxigeno']) #,on_release=partial(self.borrar_banner,i[0],i[1])
             self.grid.add_widget(self.banner)
             #print(i['fecha'],i['hora'])
+
