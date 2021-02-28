@@ -63,16 +63,21 @@ kv="""
                 on_release:root.iniciar_sesion()
             
             BoxLayout:
-                orientation:'horizontal'
+                orientation:'vertical'
                 MDLabel:
                     text:'Si no posee una cuenta,regístrese en el siguiente'
+                    pos_hint:{'center_x':.5}
                     font_style:'Caption'
                     pos_hint_x:.5
-                MDRaisedButton:
+
+                MDFlatButton:
+                    pos_hint:{'center_x':.5}
                     text:'enlace'
-                    text_color: 0, 0, 1, 1
-                    md_bg_color:1,1,1,.6
-                    #font_size: "18sp"
+                    size_hint_y:.2
+                    text_color: 0, 0, 0, 1
+                    elevation: 0
+                    #md_bg_color:1,1,1,0
+                    font_style:'Caption'
                     on_release: root.ir_enlace()
 """
 class LoginScreen(MDScreen):

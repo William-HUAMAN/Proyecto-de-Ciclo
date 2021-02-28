@@ -17,14 +17,65 @@ kv="""
     name:'pacientes_screen'
     BoxLayout:
         orientation:'vertical'
-        BoxLayout:
-            sise_hint_y:.8
+        FloatLayout:
+            size_hint:(1,.3)
+            Image:
+                source:'recursos/imagenes/termometro.png'
+                size_hint:(.25,.7)
+                pos_hint:{'center_x':.2,'center_y':.5}
+            Image:
+                source:'recursos/imagenes/oxigeno.png'
+                size_hint:(.25,.4)
+                pos_hint:{'center_x':.5,'center_y':.5}
+            Image:
+                source:'recursos/imagenes/pulso.png'
+                size_hint:(.25,.7)
+                pos_hint:{'center_x':.8,'center_y':.5}
+
+        FloatLayout:
+            size_hint:(1,.2)
+            MDRectangleFlatButton:
+                text: "Medir temperatura"
+                theme_text_color: "Custom"
+                text_color: 1, 0, 0, 1
+                line_color: 0, 0, 1, 1
+                pos_hint:{'center_x':.2,'center_y':.5}
+            MDRectangleFlatButton:
+                text: "Medir porcentaje de saturacion de oxigeno"
+                theme_text_color: "Custom"
+                text_color: 1, 0, 0, 1
+                line_color: 0, 0, 1, 1
+                pos_hint:{'center_x':.5,'center_y':.5}
+            MDRectangleFlatButton:
+                text: "Medir pulso cardiaco"
+                theme_text_color: "Custom"
+                text_color: 1, 0, 0, 1
+                line_color: 0, 0, 1, 1
+                pos_hint:{'center_x':.8,'center_y':.5}
+
+        GridLayout:
+            size_hint:(1,.2)
+            cols:3
             MDLabel:
-                text:' subir datos'
-        BoxLayout
-            sise_hint_y:.2
-            MDRaisedButton:
-                text:'Enviar dato'
+                text:'temperatura'
+                halign:'center'
+            MDLabel:
+                text:'porcentaje de saturacion de oxigeno'
+                halign:'center'
+            MDLabel:
+                text:'pulso'
+                halign:'center'
+
+        FloatLayout:
+            size_hint:(1,.2)
+            MDRectangleFlatButton:
+                text: "Enviar datos"
+                theme_text_color: "Custom"
+                text_color: 1, 0, 0, 1
+                line_color: 0, 0, 1, 1
+                pos_hint: {"center_x": .5,"center_y": .75 }
+                halign:'center'
+                valign:'center'
                 on_release:root.enviar_mediciones()
         
 """
