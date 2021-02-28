@@ -1,6 +1,6 @@
 from pymongo import MongoClient
 from io import open
-import pandas as pd
+
 
 class Conexion_BD():
 
