@@ -60,6 +60,6 @@ class HistorialScreen(MDScreen):
         self.filas_mis_datos=Conexion_BD()
     
     def on_pre_enter(self,*args):
-        pass
+        print('historial')
         #self.app.title="Historial"
         #self.filas_pacientes.obtener_pacientes()
