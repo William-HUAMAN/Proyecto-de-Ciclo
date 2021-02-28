@@ -4,7 +4,7 @@ from kivy.lang import Builder
 from kivy.uix.screenmanager import Screen, ScreenManager
 from splash_screen import SplashScreen
 
-class MedicoApp(MDApp):
+class PacienteApp(MDApp):
     def build(self):
         sm=ScreenManager()
         self.title='Pacient-App'
@@ -16,4 +16,4 @@ class MedicoApp(MDApp):
         self.root.add_widget(ss)
         self.root.current='splash_screen'
 
-MedicoApp().run()
+PacienteApp().run()

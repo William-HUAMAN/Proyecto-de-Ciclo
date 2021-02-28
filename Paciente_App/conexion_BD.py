@@ -1,5 +1,6 @@
 from pymongo import MongoClient
 from io import open
+import pandas as pd
 
 class Conexion_BD():
 
@@ -28,7 +29,6 @@ class Conexion_BD():
             return True
 
         
-
     def verificar_mi_conexion(self,nombre,apellido,num_dni,centro):
         db=self.get_db()
         dato=db.pacientes.find({"nombres":nombre,'apellidos':apellido,'colegiatura':num_dni,'centro':centro},{'_id':0,"nombres":1})#
@@ -40,6 +40,12 @@ class Conexion_BD():
     def insertar_dato(self,dato):
         db=self.get_db()
         db.mediciones_pacientes.insert_one(dato)
+    
+    def consultar_historial(self,dni):
+        db=self.get_db()
+        mediciones=db.mediciones_pacientes.find({'dni':dni},{'_id':0,'fecha':1,'hora':1,'pulso':1,'temperatura':1,'oxigeno':1}).sort('fecha_int',1)
+        # for medicion in mediciones:
+        #     print(type(medicion))
         
 
 class MedicionesPacientes:

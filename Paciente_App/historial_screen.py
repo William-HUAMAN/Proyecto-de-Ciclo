@@ -57,9 +57,16 @@ class HistorialScreen(MDScreen):
     def __init__(self,**kw):
         super().__init__(**kw)
         
-        self.filas_mis_datos=Conexion_BD()
+        self.mi_historial=Conexion_BD()
     
     def on_pre_enter(self,*args):
-        print('historial')
+        f=open('info_paciente.txt','r')
+        linea_texto=f.readlines()
+        f.close()
+        dni=int(linea_texto[2])
+        # busqueda de datos 
+        #self.mis_datos=
+        self.mi_historial.consultar_historial(dni)
+        #print(self.mis_datos)
         #self.app.title="Historial"
         #self.filas_pacientes.obtener_pacientes()
