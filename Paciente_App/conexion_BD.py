@@ -41,11 +41,11 @@ class Conexion_BD():
         db=self.get_db()
         db.mediciones_pacientes.insert_one(dato)
     
-    def consultar_historial(self,dni):
-        db=self.get_db()
-        mediciones=db.mediciones_pacientes.find({'dni':dni},{'_id':0,'fecha':1,'hora':1,'pulso':1,'temperatura':1,'oxigeno':1}).sort('fecha_int',1)
-        # for medicion in mediciones:
-        #     print(type(medicion))
+    # def consultar_historial(self,dni):
+    #     db=self.get_db()
+    #     mediciones=db.mediciones_pacientes.find({'dni':dni},{'_id':0,'fecha':1,'hora':1,'pulso':1,'temperatura':1,'oxigeno':1}).sort('fecha_int',1)
+    #     # for medicion in mediciones:
+    #     #     print(type(medicion))
         
 
 class MedicionesPacientes:
