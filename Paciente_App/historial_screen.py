@@ -91,8 +91,7 @@ class HistorialScreen(MDScreen):
     
     def __init__(self,**kw):
         super().__init__(**kw)
-        self.ga='ga'
-        
+        self.vez=0
     
     def on_pre_enter(self):
         f=open('info_paciente.txt','r')
@@ -107,6 +106,14 @@ class HistorialScreen(MDScreen):
         self.lista_mediciones=list(mediciones)
 
         
+        if self.vez ==0:
+            #print('pasar')
+            self.vez=1
+        else:
+            #print('borrar')
+            for i in range(len(self.lista_mediciones)-1):
+                self.grid.remove_widget(self.grid.children[0])
+
         for i in self.lista_mediciones:
             self.banner=Banner(i['fecha'],i['hora'],i['pulso'],i['temperatura'],i['oxigeno']) #,on_release=partial(self.borrar_banner,i[0],i[1])
             self.grid.add_widget(self.banner)
