@@ -11,12 +11,14 @@ class Conexion_BD():
             print('Error de conexion')
         return self.db
 
-    def obtener_pacientes(self):
-        # db=self.get_db()
-        # pacientes=db.pacientes.find()
+    def obtener_pacientes(self,centro):
+        db=self.get_db()
+        pacientes=db.pacientes.find({'centro':centro},{'_id':0,'nombres':1,'apellidos':1,'email':1,'celular':1,'edad':1,'direccion':1,'departamento':1,'ciudad':1,'dni':1})
+        lista_pacientes=list(pacientes)
         # for paciente in pacientes:
         #     print(paciente)
-        print('lista de pacientes')
+        #print(centro)
+        return lista_pacientes
 
 
     def inicio_sesion(self,email,password):
