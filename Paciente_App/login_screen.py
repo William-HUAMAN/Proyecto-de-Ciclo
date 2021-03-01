@@ -7,6 +7,7 @@ import webbrowser
 #importando la pantalla de navegacion
 from navigation_screen import NavigationScreen
 
+
 kv="""
 <LoginScreen>:
     name:'login_screen'
@@ -14,11 +15,11 @@ kv="""
         FitImage:
             source:'recursos/imagenes/fondo_1.jpg'
         
-        BoxLayout:
+        FloatLayout:
             id:box
-            orientation: 'vertical'
-            size_hint: .45,.7
-            height: self.minimum_height
+            size_hint:None,None
+            width:500
+            height:500
             pos_hint: {"center_x": .5,"center_y": .5 }
             padding:"30dp","15dp","30dp","30dp"
             spacing:'10dp'
@@ -32,53 +33,64 @@ kv="""
                     radius: 10,10,10,10
 
             MDLabel:
+                pos_hint: {"center_x": .5,"center_y": .9 }
                 text:'INICIO DE SESIÓN'
                 bold:True
                 theme_text_color:'Custom'
                 text_color:0,0,0,1
                 halign:'center'
+                font_style:"H5"
             MDLabel:
-                text:'Bienvenido!'
+                pos_hint: {"center_x": .5,"center_y": .8 }
+                text:'Bienvenido'
+                size_hint_x:.8
                 bold:True
+                font_style:"Subtitle1"
             MDLabel:
+                pos_hint: {"center_x": .5,"center_y": .7 }
+                size_hint_x:.8
                 text:'Necesitamos que nos brindes algunos datos para poder hacer uso de este servicio'
-                font_style:'Caption'
+                font_style:'Body1'
+
             MDTextFieldRound:
+                pos_hint: {"center_x": .5,"center_y": .55 }
+                size_hint_x:.8
                 id:correo
                 icon_left:'mail'
-                pos_hint:{'center_x':.5}
                 normal_color: 1,1,1,.5
                 icon_left_color: 0,0,0
             
             MDTextFieldRound:
                 id:password
                 icon_left:'lock'
-                pos_hint:{'center_x':.5}
+                size_hint_x:.8
+                pos_hint: {"center_x": .5,"center_y": .4 }
                 normal_color: 1,1,1,.5
                 icon_left_color: 0,0,0
                 
             MDRaisedButton:
-                text:'Iniciar'
-                pos_hint:{'center_x':.5}
+                text:'Iniciar Sesión'
+                font_size: "15sp"
+                pos_hint: {"center_x": .5,"center_y": .25 }
                 on_release:root.iniciar_sesion()
             
-            BoxLayout:
-                orientation:'vertical'
-                MDLabel:
-                    text:'Si no posee una cuenta,regístrese en el siguiente'
-                    pos_hint:{'center_x':.5}
-                    font_style:'Caption'
-                    pos_hint_x:.5
+            MDLabel:
+                text:'Si no posee una cuenta,regístrese en el siguiente'
+                pos_hint: {"center_x": .5,"center_y": .125 }
+                halign:'center'
+                size_hint_x:.8
+                font_style:'Body1'
+                pos_hint_x:.5
 
-                MDFlatButton:
-                    pos_hint:{'center_x':.5}
-                    text:'enlace'
-                    size_hint_y:.2
-                    text_color: 0, 0, 0, 1
-                    elevation: 0
-                    #md_bg_color:1,1,1,0
-                    font_style:'Caption'
-                    on_release: root.ir_enlace()
+            MDFlatButton:
+                pos_hint: {"center_x": .5,"center_y": .075 }
+                text:'enlace'
+                size_hint_y:.2
+                text_color: 0, 0, .4, 1
+                elevation: 0
+                #md_bg_color:1,1,1,0
+                font_size: "16sp"
+                on_release: root.ir_enlace()
 """
 class LoginScreen(MDScreen):
     Builder.load_string(kv)

@@ -50,7 +50,7 @@ kv="""
                             on_release:root.cerrar_sesion()
 
                             IconLeftWidget:
-                                icon:"home-variant"
+                                icon:"close-circle"
 
 """
 class NavigationScreen(MDScreen):
@@ -71,11 +71,13 @@ class NavigationScreen(MDScreen):
             HistorialScreen:('historial_screen','Historial','history')
         }
 
+
     def on_enter(self, *args):
         for screen,details in self.list_screen.items():
             identification,text,icon=details
             self.ids.screen_manager.add_widget(screen(name=identification))
-            self.ids.nav_list.add_widget(ListIcon(text=text,icon=icon,on_release=partial(self.button_list_actions,text,identification)))  
+            self.ids.nav_list.add_widget(ListIcon(text=text,icon=icon,on_release=partial(self.button_list_actions,text,identification)))
+
         
     def button_list_actions(self,title,identification):
         self.ids.tool_bar.title=title

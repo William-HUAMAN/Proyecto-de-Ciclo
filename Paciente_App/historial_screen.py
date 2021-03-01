@@ -26,11 +26,11 @@ class Banner(FloatLayout):
         self.bind(pos=self.update_rect,size=self.update_rect)
 
         #etiquetas del banner
-        self.title_fecha=MDLabel(text=self.hora,pos_hint={'center_x': .3, 'center_y':.5},size_hint=(.2,.3),halign='center')
-        self.title_hora=MDLabel(text=self.fecha,pos_hint={'center_x': .1, 'center_y':.5},size_hint=(.2,.3),halign='left')
-        self.title_pulso=MDLabel(text=self.pulso,pos_hint={'center_x': .5, 'center_y':.5},size_hint=(.2,.3),halign='left')
-        self.title_temperatura=MDLabel(text=self.temperatura,pos_hint={'center_x': .7, 'center_y':.5},size_hint=(.2,.3),halign='left')
-        self.title_oxigeno=MDLabel(text=self.oxigeno,pos_hint={'center_x': .9, 'center_y':.5},size_hint=(.2,.3),halign='left')
+        self.title_fecha=MDLabel(text=self.hora,pos_hint={'center_x': .36, 'center_y':.5},size_hint=(.2,.3),halign='left')
+        self.title_hora=MDLabel(text=self.fecha,pos_hint={'center_x': .15, 'center_y':.5},size_hint=(.2,.3),halign='left')
+        self.title_pulso=MDLabel(text=self.pulso,pos_hint={'center_x': .59, 'center_y':.5},size_hint=(.2,.3),halign='left')
+        self.title_temperatura=MDLabel(text=self.temperatura,pos_hint={'center_x': .79, 'center_y':.5},size_hint=(.2,.3),halign='left')
+        self.title_oxigeno=MDLabel(text=self.oxigeno,pos_hint={'center_x': .99, 'center_y':.5},size_hint=(.2,.3),halign='left')
 
         #agregar widget
         self.add_widget(self.title_fecha)
