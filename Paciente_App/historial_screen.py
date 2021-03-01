@@ -63,13 +63,13 @@ kv="""
                 pos:self.pos
                 size:self.size
                     
-
-        MDLabel:
-            halign:'center'
-            text:'Datos enviados agdg ad ada dsgsg  dsg d gs g  fdf'
-            color_text: 0,0,0,0
-            #font_style:'H2'
-            size_hint: (1,.15)
+        BoxLayout:
+            MDLabel:
+                halign:'center'
+                text:'Datos enviados agdg ad ada dsgsg  dsg d gs g  fdf'
+                color_text: 0,0,0,0
+                #font_style:'H2'
+                size_hint: (1,.15)
         
         ScrollView:
             id:Scroll

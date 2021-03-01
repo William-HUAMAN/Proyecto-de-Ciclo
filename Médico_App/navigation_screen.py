@@ -44,6 +44,13 @@ kv="""
                 ScrollView:
                     MDList:
                         id:nav_list
+                        OneLineIconListItem:
+                            text:'Salir'
+                            #on_release:app.cerrar_ventana()
+
+                            IconLeftWidget:
+                                icon:"home-variant"
+
 """
 class NavigationScreen(MDScreen):
     Builder.load_string(kv)

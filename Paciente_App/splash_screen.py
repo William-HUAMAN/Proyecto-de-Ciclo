@@ -16,10 +16,10 @@ from io import open
 kv="""
 <SplashScreen>
     name: "splash_screen"
-    md_bg_color:app.theme_cls.primary_color
+    md_bg_color:1,1,1,1
     Image:
-        source:'recursos/imagenes/logo.png'
-        size_hint:(.5,.5)
+        source:'recursos/imagenes/logo2.png'
+        size_hint:(.9,.9)
         pos_hint:{'center_x':.5,'center_y':.5}
 """
 class SplashScreen(MDScreen):

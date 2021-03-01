@@ -3,6 +3,7 @@ from kivy.lang import Builder
 from kivymd.uix.list import OneLineIconListItem,IconLeftWidget
 from kivymd.app import MDApp
 from functools import partial
+import sys
 
 class ListIcon(OneLineIconListItem):
     def __init__(self,**kw):
@@ -44,6 +45,13 @@ kv="""
                 ScrollView:
                     MDList:
                         id:nav_list
+                        OneLineIconListItem:
+                            text:'Cerrar Sesión'
+                            on_release:root.cerrar_sesion()
+
+                            IconLeftWidget:
+                                icon:"home-variant"
+
 """
 class NavigationScreen(MDScreen):
     Builder.load_string(kv)
@@ -58,9 +66,9 @@ class NavigationScreen(MDScreen):
         from historial_screen import HistorialScreen
 
         self.list_screen = {
-            PacientesScreen:('pacientes_screen','Enviar datos','settings'),#solo se cambió el nombre debido al tiempo
-            InformacionScreen:('information_screen','Información','settings'),
-            HistorialScreen:('historial_screen','Historial','settings')
+            PacientesScreen:('pacientes_screen','Enviar datos','file-send'),#solo se cambió el nombre debido al tiempo
+            InformacionScreen:('information_screen','Información','information'),
+            HistorialScreen:('historial_screen','Historial','history')
         }
 
     def on_enter(self, *args):
@@ -74,4 +82,8 @@ class NavigationScreen(MDScreen):
         self.ids.screen_manager.current=identification
         self.ids.nav_drawer.set_state()
 
-#video 5 casi final
+    def cerrar_sesion(self):
+        archivo_texto=open('info_paciente.txt','w')
+        archivo_texto.write('')
+        archivo_texto.close()
+        sys.exit()

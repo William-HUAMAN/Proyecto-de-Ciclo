@@ -101,8 +101,7 @@ class LoginScreen(MDScreen):
             self.app.root.current='navigation_screen'
         # print(self.ids.correo.text)
         # print(self.ids.password.text)
-        
 
     def ir_enlace(self):
-        webbrowser.open('https://stark-spire-16180.herokuapp.com/reg_medico#')
+        webbrowser.open('https://stark-spire-16180.herokuapp.com/reg_paciente#')
         
