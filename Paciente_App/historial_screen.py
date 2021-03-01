@@ -25,7 +25,7 @@ class Banner(FloatLayout):
         
         self.bind(pos=self.update_rect,size=self.update_rect)
 
-        #etiquetas
+        #etiquetas del banner
         self.title_fecha=MDLabel(text=self.hora,pos_hint={'center_x': .3, 'center_y':.5},size_hint=(.2,.3),halign='center')
         self.title_hora=MDLabel(text=self.fecha,pos_hint={'center_x': .1, 'center_y':.5},size_hint=(.2,.3),halign='left')
         self.title_pulso=MDLabel(text=self.pulso,pos_hint={'center_x': .5, 'center_y':.5},size_hint=(.2,.3),halign='left')
@@ -64,24 +64,44 @@ kv="""
                 size:self.size
                     
         BoxLayout:
-            MDLabel:
-                halign:'center'
-                text:'Datos enviados agdg ad ada dsgsg  dsg d gs g  fdf'
-                color_text: 0,0,0,0
-                #font_style:'H2'
-                size_hint: (1,.15)
-        
-        ScrollView:
-            id:Scroll
+            size_hint: (1,.1)
             GridLayout:
-                id:grid_banner
-                cols:1
-                padding:[20,20,20,20]
-                size_hint_y:None
-                height:self.minimum_height
-                row_default_height:50
-                padding:'10dp'
-                spacing:'10dp'
+                cols:5
+                MDLabel:
+                    halign:'center'
+                    text:'Fecha'
+                    color_text: 0,0,0,0
+                MDLabel:
+                    halign:'center'
+                    text:'Hora'
+                    color_text: 0,0,0,0
+                MDLabel:
+                    halign:'center'
+                    text:'Pulso'
+                    color_text: 0,0,0,0
+                MDLabel:
+                    halign:'center'
+                    text:'Temperatura'
+                    color_text: 0,0,0,0
+                MDLabel:
+                    halign:'center'
+                    text:'Oxigeno'
+                    color_text: 0,0,0,0
+                    
+                
+        BoxLayout:
+            size_hint:(1,.9)
+            ScrollView:
+                id:Scroll
+                GridLayout:
+                    id:grid_banner
+                    cols:1
+                    padding:[20,20,20,20]
+                    size_hint_y:None
+                    height:self.minimum_height
+                    row_default_height:50
+                    padding:'10dp'
+                    spacing:'10dp'
 
 
 """
