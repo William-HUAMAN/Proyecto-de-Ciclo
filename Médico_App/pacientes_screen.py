@@ -18,7 +18,7 @@ class Banner(FloatLayout):
     def __init__(self,apellidos,nombre, **kwargs):
         self.apellidos=str(apellidos)
         self.nombres=str(nombre)
-        self.inicial='a'#str(self.apellidos[0])
+        self.inicial='f'
 
         #agregar para la funcion
 
@@ -34,12 +34,12 @@ class Banner(FloatLayout):
         self.title_apellidos=MDLabel(text=self.apellidos,pos_hint={'center_x': .37, 'center_y':.5},size_hint=(.45,.3),halign='center')
         self.title_nombres=MDLabel(text=self.nombres,pos_hint={'center_x': .7, 'center_y':.5},size_hint=(.45,.3),halign='center')
         self.icono=MDIcon(icon='alpha-'+self.inicial+'-circle',pos_hint={'center_x': .09, 'center_y':.5},size_hint=(.1,.3),halign='center')
-        self.menos=MDIconButton(icon='eye',pos_hint={'center_x': .95, 'center_y':.5},on_release=kwargs['on_release'])
+        self.visual=MDIconButton(icon='eye',pos_hint={'center_x': .95, 'center_y':.5},on_release=kwargs['on_release'])
         #agregar widget
         self.add_widget(self.icono)
         self.add_widget(self.title_apellidos)
         self.add_widget(self.title_nombres)
-        self.add_widget(self.menos)
+        self.add_widget(self.visual)
     
     def update_rect(self,*args):
         self.rect.pos=self.pos
