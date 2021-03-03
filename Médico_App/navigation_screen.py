@@ -62,10 +62,12 @@ class NavigationScreen(MDScreen):
         from login_screen import LoginScreen
         from pacientes_screen import PacientesScreen
         from informacion_screen import InformacionScreen
+        from pacientes_screen import HistorialScreen
 
         self.list_screen = {
             InformacionScreen:('information_screen','Información','settings'),
             PacientesScreen:('pacientes_screen','Pacientes','settings')
+            
         }
 
     def on_enter(self, *args):
